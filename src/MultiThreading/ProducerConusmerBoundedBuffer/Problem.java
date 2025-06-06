@@ -10,7 +10,7 @@ public class Problem {
     /*
     *
     * A BoundedBuffer class with ReentrantLock and two Condition objects (notFull and notEmpty)
-      A simple main method that spins up one producer and one consumer thread
+      A simple Main method that spins up one producer and one consumer thread
       Each thread produces or consumes 10 items
     *
     *

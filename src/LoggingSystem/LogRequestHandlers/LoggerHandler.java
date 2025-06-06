@@ -41,14 +41,14 @@ public abstract class LoggerHandler {
     }
 
     private LogLevel intoLogLevel(int level) {
-        switch (level) {
-            case INFO:
-                return LogLevel.INFO;
-            case DEBUG:
-                return LogLevel.DEBUG;
-            case ERROR:
-                return LogLevel.ERROR;
-        }
+//        return switch (level) {
+//            case INFO -> return LogLevel.INFO;
+//            case DEBUG:
+//                return LogLevel.DEBUG;
+//            case ERROR:
+//                return LogLevel.ERROR;
+//        }
+        return null;
     }
 
     public abstract void processLog(String message);

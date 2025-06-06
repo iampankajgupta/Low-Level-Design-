@@ -31,11 +31,11 @@ public class ShareResourceSync {
         thread1.start();
         thread2.start();
 
-        // if we comment this thread it will quite possible that main thread end output prints as 0
+        // if we comment this thread it will quite possible that Main thread end output prints as 0
 //        thread.join();
 //        thread2.join();
 //
-        // this is to tell main thread wait for thread1 and thread2 to stop and then only you stop and terminate
+        // this is to tell Main thread wait for thread1 and thread2 to stop and then only you stop and terminate
         thread1.join();
         thread2.join();
 

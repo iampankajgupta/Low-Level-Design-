@@ -10,7 +10,6 @@ public class DebugLogHandler extends LoggerHandler {
 
     @Override
     public void processLog(String message) {
-            System.out.println("Debug handler handling log message: "+message);
-        }
+        System.out.println("Debug handler handling log message: " + message);
     }
 }

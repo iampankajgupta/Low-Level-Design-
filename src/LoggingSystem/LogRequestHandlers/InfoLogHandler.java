@@ -14,13 +14,13 @@ public class InfoLogHandler extends LoggerHandler {
 
     @Override
         public void processLog(String message) {
-            if(config.getLogLevel().toUpperCase().equals(LogLevel.INFO.name())) {
-                LogMessage logMessage = LogMessage.createLogMessage(LogLevel.valueOf(config.getLogLevel().toUpperCase()), message);
-                System.out.println("Info handler handling log message: "+message);
-                IDataSource dataSource = DatasourceFactory.getInstance().getDataSource(config.getDatasource().toUpperCase());
-                dataSource.processLog(logMessage);
-            }else {
-                next.processLog(message);
-            }
+//            if(config.getLogLevel().toUpperCase().equals(LogLevel.INFO.name())) {
+//                LogMessage logMessage = LogMessage.createLogMessage(LogLevel.valueOf(config.getLogLevel().toUpperCase()), message);
+//                System.out.println("Info handler handling log message: "+message);
+//                IDataSource dataSource = DatasourceFactory.getInstance().getDataSource(config.getDatasource().toUpperCase());
+//                dataSource.processLog(logMessage);
+//            }else {
+//                next.processLog(message);
+//            }
         }
     }
