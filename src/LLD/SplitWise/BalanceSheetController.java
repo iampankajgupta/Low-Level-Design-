@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class BalanceSheetController {
 
-
+/*
     public void updateUserBalanceSheet(User paidUser, List<Split> splitList, double amount, boolean isSettle) {
         UserExpenseBalanceSheet paidUserBalanceSheet = paidUser.getBalanceSheet();
         double totalPayment = isSettle ? paidUserBalanceSheet.getTotalPayment() - amount : paidUserBalanceSheet.getTotalPayment() + amount;
@@ -74,4 +74,6 @@ public class BalanceSheetController {
         return new Balance();
 
     }
+
+ */
 }

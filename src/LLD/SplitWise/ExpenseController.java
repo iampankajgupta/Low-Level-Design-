@@ -34,12 +34,16 @@ public class ExpenseController{
             if(!OptExpense.get().getPaidUser().equals(currentUser)) {
                 Optional<Split> currentUserDetails = OptExpense.get().getFriendList().stream().filter(user -> user.getUser().getUserId().equals(currentUser.getUserId())).findAny();
                 if(currentUserDetails.isPresent()) {
+                    return false;
+                    /*
                     if(currentUserDetails.get().getAmount() >= amount) {
                         // update the user balance sheet
 
                     }else {
                         System.out.println("Settled Amount is greater than Owed Amount for expense with id: "+expenseId);
                     }
+                    */
+
                 }
             }
             // settle amount

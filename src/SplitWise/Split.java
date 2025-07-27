@@ -1,11 +1,8 @@
-package LLD.SplitWise;
-
-import SplitWise.Balance;
+package SplitWise;
 
 public class Split {
     private User user;
-    private Balance amount;
-
+    private double amount;
 
     public User getUser() {
         return user;
@@ -15,11 +12,21 @@ public class Split {
         this.user = user;
     }
 
+    /*
     public Balance getAmount() {
         return amount;
     }
 
     public void setAmount(Balance amount) {
+        this.amount = amount;
+    }
+    */
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 }
