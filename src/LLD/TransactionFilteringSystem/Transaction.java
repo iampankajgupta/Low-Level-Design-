@@ -1,19 +1,20 @@
 package LLD.TransactionFilteringSystem;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.UUID;
 
 public class Transaction {
     private final String transactionId;
     private Double amount;
     private String description;
-    private long customerId;
-    private long merchantId;
+    private Long customerId;
+    private Long merchantId;
     private TransactionStatus status;
     private PaymentMethod paymentMethod;
     private LocalDateTime transactionDateTime;
 
-    public Transaction(Double amount, String description, long customerId, long merchantId, TransactionStatus status, PaymentMethod paymentMethod, LocalDateTime transactionDateTime) {
+    public Transaction(Double amount, String description, Long customerId, Long merchantId, TransactionStatus status, PaymentMethod paymentMethod, LocalDateTime transactionDateTime) {
         this.transactionId = UUID.randomUUID().toString();
         this.amount = amount;
         this.description = description;
@@ -48,7 +49,7 @@ public class Transaction {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 
@@ -56,7 +57,7 @@ public class Transaction {
         return merchantId;
     }
 
-    public void setMerchantId(long merchantId) {
+    public void setMerchantId(Long merchantId) {
         this.merchantId = merchantId;
     }
 
@@ -82,6 +83,21 @@ public class Transaction {
 
     public void setTransactionDateTime(LocalDateTime transactionDateTime) {
         this.transactionDateTime = transactionDateTime;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId='" + transactionId + '\'' +
+                ", amount=" + amount +
+                ", merchantId=" + merchantId +
+                ", status=" + status +
+                ", paymentMethod=" + paymentMethod +
+                ", transactionDateTime=" + transactionDateTime +
+                ", description='" + description + '\'' +
+                ", customerId=" + customerId +
+                '}';
     }
 }
 

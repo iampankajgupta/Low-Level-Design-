@@ -7,6 +7,7 @@ import java.util.List;
 
 public class SearchController {
 
+  /*
   SearchService searchService;
 
   public List<BookCopy> searchBookByBookName(String bookName) {
@@ -21,5 +22,7 @@ public class SearchController {
   public List<BookCopy> searchBookByBookId(Long bookId) {
     searchService.searchBookByBookId(bookId);
   }
+
+   */
 
 }

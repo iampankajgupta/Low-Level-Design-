@@ -1,4 +1,42 @@
 
+Learning 
+Can use switch or if else during object creation i.e factory pattern and OCP principle would not be violated or it is okay
+Can be removed using Map to make OCP compliant
+
+But if Behaviour or business logic used in if else or  switch case then OCP is being violated.
+
+How to make any class OCP Compliant
+Create an interface/abstract class and let other implement / extend the behaviour
+
+Liskov Substitution Principle 
+if B is a subtype of A then B should be substitutable by A 
+basically means depend on abstraction and if creating interface then create/segregate interfaces properly
+
+Ex 
+1.Bird with Fly method -> Pigeon is bird it extend then it is ok
+2.Ostrich is also a bird but it cannot fly, so here this principle is being violated and when override need to throw some exception as Ostrich cannot fly.
+
+interface Bird.
+interface flyable extends Bird
+interface nonFlyable extends Bird
+
+Pigeon implements flyable
+Ostrich implements method of NonFlyable
+
+
+
+
+
+
+Generics 
+Wildcards
+
+
+
+
+
+
+
 Build a Transaction Filtering System
 
 My Understanding 
@@ -72,7 +110,8 @@ List<FilterCriteria<?>>
 public List<Transaction> getFilterTransaction(List<FilterCriteria<?>> filterCriterias) {
 
     for(FilterCriteria<?> filterCriteria : filterCriteria) {
-    
+
+        // for each filterCriteria Call the operator which
     
     }
     

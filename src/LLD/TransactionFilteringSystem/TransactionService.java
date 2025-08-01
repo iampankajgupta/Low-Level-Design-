@@ -113,6 +113,7 @@ public class TransactionService {
 
     // Single Responsibility
     // Open close principle
+    // Being Violated
     public List<Transaction> filterByStringField(
             Collection<Transaction> transactions,
             String value,
@@ -238,7 +239,6 @@ public class TransactionService {
             }
         }
         But only do this if truly needed, like when you must catch this specific type somewhere.
-
         */
 
 

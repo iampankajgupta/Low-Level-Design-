@@ -105,14 +105,14 @@ public class UpdatedTransactionService {
     public static void main(String[] args) {
         LocalDateTime localDateTime = LocalDateTime.now();
         List<Transaction> transactions = new ArrayList<>();
-        Transaction transaction1 = new Transaction(100.0, "Grocery",1,2,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
-        Transaction transaction2 = new Transaction(100.0, "Market",3,4,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
-        Transaction transaction3 = new Transaction(100.0, "Shopping",1,8,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
+        Transaction transaction1 = new Transaction(100.0, "Grocery",1L,2L,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
+        Transaction transaction2 = new Transaction(100.0, "Market",3L,4L,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
+        Transaction transaction3 = new Transaction(100.0, "Shopping",1L,8L ,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
         transactions.addAll(Arrays.asList(transaction1, transaction2, transaction3));
         UpdatedTransactionService transactionService = new UpdatedTransactionService();
         transactionService.addTransaction(100.0, "Grocery",1L,2L,TransactionStatus.COMPLETED, PaymentMethod.CREDIT, localDateTime);
 
-        transactionService.getFilteredByOperatorDateTime()
+        // transactionService.getFilteredByOperatorDateTime()
 
 
 

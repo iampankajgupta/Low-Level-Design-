@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
-
-  public List<BookCopy> searchBookByBookName(String bookName) {
+/*
+  public List<LibraryManagementSystem.BookCopy> searchBookByBookName(String bookName) {
 
   }
   public List<BookCopy> searchBookByAuthorName(List<String> authorName) {
@@ -54,5 +54,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-  }
+  }\
+
+ */
 }
