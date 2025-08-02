@@ -1,12 +1,11 @@
 package LLD.TransactionFilteringSystem.OperatorType;
 
-import LLD.TransactionFilteringSystem.Transaction;
+import LLD.TransactionFilteringSystem.Model.Transaction;
 
-import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public interface OperatorType<T> {
+public interface OperatorType1<T> extends OperatorMain<T>{
     // They all will be of type predicate
 
     /*

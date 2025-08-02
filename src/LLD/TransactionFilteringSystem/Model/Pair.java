@@ -1,4 +1,4 @@
-package LLD.TransactionFilteringSystem;
+package LLD.TransactionFilteringSystem.Model;
 
 public class Pair<T> {
     private T field;

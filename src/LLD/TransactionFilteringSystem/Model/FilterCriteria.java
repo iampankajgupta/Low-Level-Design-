@@ -1,12 +1,9 @@
-package LLD.TransactionFilteringSystem;
-
-import LLD.TransactionFilteringSystem.OperatorType.OperatorService;
-import LLD.TransactionFilteringSystem.OperatorType.OperatorType;
+package LLD.TransactionFilteringSystem.Model;
 
 public class FilterCriteria<T> {
 
     private String field;
-    private String value;
+    private String value; // can be separated with comma ","
     private String operatorType;
 
     public String getField() {

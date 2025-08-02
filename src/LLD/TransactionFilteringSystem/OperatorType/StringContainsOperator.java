@@ -1,11 +1,11 @@
 package LLD.TransactionFilteringSystem.OperatorType;
 
-import LLD.TransactionFilteringSystem.Transaction;
+import LLD.TransactionFilteringSystem.Model.Transaction;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class StringContainsOperator implements OperatorType<String>{
+public class StringContainsOperator implements OperatorType1<String> {
     @Override
     public Predicate<Transaction> apply(Function<Transaction, String> fieldExtractor, String fieldValue) {
         return transaction -> fieldExtractor.apply(transaction).contains(fieldValue);

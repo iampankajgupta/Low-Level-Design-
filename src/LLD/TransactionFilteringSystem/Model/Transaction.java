@@ -1,7 +1,9 @@
-package LLD.TransactionFilteringSystem;
+package LLD.TransactionFilteringSystem.Model;
+
+import LLD.TransactionFilteringSystem.enums.PaymentMethod;
+import LLD.TransactionFilteringSystem.enums.TransactionStatus;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 import java.util.UUID;
 
 public class Transaction {
@@ -69,8 +71,8 @@ public class Transaction {
         this.status = status;
     }
 
-    public PaymentMethod getPaymentMethod() {
-        return paymentMethod;
+    public String getPaymentMethod() {
+        return paymentMethod.toString();
     }
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
@@ -84,6 +86,8 @@ public class Transaction {
     public void setTransactionDateTime(LocalDateTime transactionDateTime) {
         this.transactionDateTime = transactionDateTime;
     }
+
+
 
 
     @Override

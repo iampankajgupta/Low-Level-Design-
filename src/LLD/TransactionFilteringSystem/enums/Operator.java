@@ -1,0 +1,5 @@
+package LLD.TransactionFilteringSystem.enums;
+
+public enum Operator {
+    EQUALS, CONTAINS, GREATER_THAN, LESS_THAN, GREATER_THAN_EQUAL_TO, BEFORE, AFTER, LESS_THAN_EQUAL_TO,STARTS_WITH,ENDS_WITH, BETWEEN
+}

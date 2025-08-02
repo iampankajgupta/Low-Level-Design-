@@ -1,4 +1,4 @@
-package LLD.TransactionFilteringSystem;
+package LLD.TransactionFilteringSystem.enums;
 
 public enum TransactionStatus {
 

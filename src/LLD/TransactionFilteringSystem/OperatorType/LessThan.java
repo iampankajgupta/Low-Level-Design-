@@ -1,11 +1,11 @@
 package LLD.TransactionFilteringSystem.OperatorType;
 
-import LLD.TransactionFilteringSystem.Transaction;
+import LLD.TransactionFilteringSystem.Model.Transaction;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class LessThan<T extends Comparable<T>> implements OperatorType<T>{
+public class LessThan<T extends Comparable<T>> implements OperatorType1<T> {
 
     /*
     * 🔁 How to Remember:

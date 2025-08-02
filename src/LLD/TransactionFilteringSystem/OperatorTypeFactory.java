@@ -1,6 +1,8 @@
 package LLD.TransactionFilteringSystem;
 
 import LLD.TransactionFilteringSystem.OperatorType.*;
+import LLD.TransactionFilteringSystem.enums.Operator;
+import LLD.TransactionFilteringSystem.enums.PaymentMethod;
 
 import java.time.LocalDate;
 
@@ -35,11 +37,11 @@ public class OperatorTypeFactory {
         }
          */
 
-    public static <T> OperatorType<T> getOperatorType(Class<T> fieldType, Operator operatorType) {
-        if(fieldType == String.class) {
+    public static <T> OperatorMain<T> getOperatorType(Class<T> fieldType, Operator operatorType) {
+        if(fieldType == String.class || fieldType == PaymentMethod.class) {
             return getStringOperatorType(operatorType);
         }else if(Number.class.isAssignableFrom(fieldType)) {
-            return (OperatorType<T>) getNumberOperatorType(operatorType);
+            return (OperatorType1<T>) getNumberOperatorType(operatorType);
         }else if(fieldType == LocalDate.class) {
             return getLocalDateOperatorType(operatorType);
         }
@@ -48,9 +50,9 @@ public class OperatorTypeFactory {
         }
     }
 
-    private static <T> OperatorType<T> getLocalDateOperatorType(Operator operatorType) {
+    private static <T> OperatorMain<T> getLocalDateOperatorType(Operator operatorType) {
         return switch (operatorType) {
-            case EQUALS -> (OperatorType<T>) new GreaterThanOperator.LocalDateEqualOperatorType();
+            case EQUALS -> (OperatorType1<T>) new GreaterThanOperator.LocalDateEqualOperatorType();
            // case AFTER -> new GreaterThanOperator<>();
             //case BEFORE -> new LessThan<>();
             default -> throw new IllegalArgumentException();
@@ -59,13 +61,13 @@ public class OperatorTypeFactory {
     }
 
     // this is syntax of generics used with method
-    private static <T extends Comparable<T>> OperatorType<T> getNumberOperatorType(Operator operatorType) {;
+    private static <T extends Comparable<T>> OperatorMain<T> getNumberOperatorType(Operator operatorType) {;
         try {
             return switch (operatorType) {
                 case EQUALS ->  new NumberEqualOperator<>();
                 case GREATER_THAN -> new GreaterThanOperator<>();
                 case LESS_THAN -> new LessThan<>();
-                case BETWEEN -> new Between<>();
+                case BETWEEN -> new BetweenOperator<>();
                 default -> throw new IllegalArgumentException();
             };
         }catch (Exception e) {
@@ -74,10 +76,10 @@ public class OperatorTypeFactory {
         return null;
     }
 
-    private static <T> OperatorType<T> getStringOperatorType(Operator operatorType) {
+    private static <T> OperatorMain<T> getStringOperatorType(Operator operatorType) {
         return switch (operatorType) {
-            case EQUALS ->  (OperatorType<T>) new StringEqualOperatorType();
-            case CONTAINS -> (OperatorType<T>) new StringContainsOperator();
+            case EQUALS ->  (OperatorType1<T>) new StringEqualOperatorType();
+            case CONTAINS -> (OperatorType1<T>) new StringContainsOperator();
             default -> throw new IllegalArgumentException("Illegal Operator Type");
         };
     }

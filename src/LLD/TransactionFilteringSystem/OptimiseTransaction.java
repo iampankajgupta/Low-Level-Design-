@@ -1,5 +1,9 @@
 package LLD.TransactionFilteringSystem;
 
+import LLD.TransactionFilteringSystem.Model.Pair;
+import LLD.TransactionFilteringSystem.enums.PaymentMethod;
+import LLD.TransactionFilteringSystem.enums.TransactionStatus;
+
 import java.time.LocalDateTime;
 
 public class OptimiseTransaction {

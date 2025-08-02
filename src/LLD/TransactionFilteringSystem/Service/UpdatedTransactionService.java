@@ -1,4 +1,9 @@
-package LLD.TransactionFilteringSystem;
+package LLD.TransactionFilteringSystem.Service;
+
+import LLD.TransactionFilteringSystem.Model.Transaction;
+import LLD.TransactionFilteringSystem.enums.Operator;
+import LLD.TransactionFilteringSystem.enums.PaymentMethod;
+import LLD.TransactionFilteringSystem.enums.TransactionStatus;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
