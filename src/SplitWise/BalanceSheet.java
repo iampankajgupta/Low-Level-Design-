@@ -7,7 +7,22 @@ public class BalanceSheet {
     private double totalOwe;
     private double totalGet;
     private double totalSpent;
-    private Map<Integer, Balance> userBalance;
+    /*
+    1️⃣ Map<Integer, Balance> (User ID as key)
+    This is more common in MAANG interviews for real-world designs.
+    Why?
+
+    In real systems, the User object is often large and comes from a database or service — you don’t want to keep full
+    user objects in every map just for lookup.
+
+    IDs are immutable and lightweight — no risk of equals()/hashCode() breaking.
+
+    Easy to serialize or store in distributed caches (e.g., Redis, Memcached).
+
+    Plays well in distributed systems, where different services only know the user’s ID and not the entire object.
+     */
+    // We can also take a double if it is positive it means we take amount from user else we need to give
+    private Map<Long, Double> userBalance;
 
     public BalanceSheet() {
     }
@@ -44,11 +59,11 @@ public class BalanceSheet {
         this.totalSpent = totalSpent;
     }
 
-    public Map<Integer, Balance> getUserBalance() {
+    public Map<Long, Double> getUserBalance() {
         return userBalance;
     }
 
-    public void setUserBalance(Map<Integer, Balance> userBalance) {
+    public void setUserBalance(Map<Long, Double> userBalance) {
         this.userBalance = userBalance;
     }
 }

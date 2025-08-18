@@ -1,6 +1,4 @@
-package LLD.SplitWise;
-
-import SplitWise.Balance;
+package LLD.SplitwisePractice;
 
 public class Split {
     private User user;
@@ -27,3 +25,4 @@ public class Split {
         this.amount = amount;
     }
 }
+
