@@ -14,17 +14,17 @@ Setup:
 
 Exit and Payment:
 
-• A vehicle needs to make a payment before exiting.
+• A vehicle needs to make a paymentStatus before exiting.
 
-• Multiple payment methods (Cash, Card, UPI) should be supported.
+• Multiple paymentStatus methods (Cash, Card, UPI) should be supported.
 
-• Once payment is successful, the vehicle is allowed to exit, and the parking slot is freed.
+• Once paymentStatus is successful, the vehicle is allowed to exit, and the parking slot is freed.
 
 Illegal Actions:
 
 • A vehicle cannot park in an already occupied slot.
 
-• Vehicles cannot vacate without completing the payment process.
+• Vehicles cannot vacate without completing the paymentStatus process.
 
 Classes
 

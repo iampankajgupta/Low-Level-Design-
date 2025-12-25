@@ -49,7 +49,7 @@ public class ExpenseService implements IExpenseService{
 
     @Override
     public void updateExpense(SplitRequest splitRequest) {
-        //
+        // Only the user created the expense can update the expense
     }
 
     public List<Expense> getExpenseList() {

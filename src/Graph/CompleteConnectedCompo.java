@@ -84,4 +84,30 @@ public class CompleteConnectedCompo {
         return actualEdges == expectedEdges ? 1 : 0;
     }
 
+    public static void test(List<List<Integer>> graph, int index, boolean[]visited) {
+        visited[index] = true;
+        for(int i : graph.get(index)) {
+            if(!visited[i]) {
+                test(graph, i, visited);
+            }
+        }
+    }
+
+
+    public static void test2(List<List<Integer>> graph, int index, boolean[]visited) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(index);
+        visited[index] = true;
+
+        while(!q.isEmpty()) {
+            int ele = q.poll();
+            for(int i : graph.get(ele)) {
+                if(!visited[i]) {
+                    visited[i] = true;
+                    q.add(i);
+                }
+            }
+        }
+    }
+
 }

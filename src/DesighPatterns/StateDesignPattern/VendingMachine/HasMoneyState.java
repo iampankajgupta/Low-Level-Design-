@@ -20,9 +20,9 @@ public class HasMoneyState implements State{
         List<Item> shelf = vendingMachine.getVendingShelves().get(codeId.substring(0,4));
         boolean itemFound = false;
         for(Item item : shelf) {
-            String itemId = item.getItemId();
+            String itemId = item.getId();
             if(itemId.equals(codeId) && item.getCost() <= vendingMachine.getBalance()) {
-                vendingMachine.setBalance(item.getCost() - vendingMachine.getBalance());
+               // vendingMachine.setBalance(item.getCost() - vendingMachine.getBalance());
                 vendingMachine.setCurrentState(new DispensingState(vendingMachine));
                 itemFound = true;
                 break;

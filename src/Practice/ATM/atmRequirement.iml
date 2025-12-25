@@ -1,0 +1,232 @@
+Candidate: Certainly! Here's my understanding of the ATM Machine System:
+
+• The system will process customer transactions on a single ATM machine.
+
+• Users can insert cards, authenticate, and perform various banking operations.
+
+• The system authenticates users via PIN verification before allowing transactions.
+
+• The ATM maintains cash inventory and prevents dispensing when insufficient.
+
+• The system transitions through various states during the transaction cycle.
+
+Is this the expected flow?
+
+‍
+
+Interviewer: Yes, you are aligned with the flow. Please continue ahead.
+
+‍
+
+Candidate: Great! Before diving into the design, I'd like to clarify a few requirements:
+
+• What types of operations should the system support?
+
+• How should the system handle user authentication?
+
+• Are there specific states the ATM should manage?
+
+Point 2: Clarifying Requirements:
+Interviewer: We want a system that:
+
+• Supports basic operations like cash withdrawal and balance checking.
+
+• Handles card insertion and PIN-based authentication.
+
+• Manages the state transitions of the ATM during operations.
+
+Candidate: To summarize, the key requirements are:
+
+• A system that authenticates users via card and PIN.
+
+• State management to handle the flow from card insertion to transaction completion.
+
+• Support for basic banking operations (withdraw cash, check balance).
+
+• Ability to handle edge cases like incorrect PIN, insufficient funds, or machine maintenance.
+
+
+classes which i have identified
+
+1. ATM
+2. ATM Session
+3. Card
+4. Cash Dispenser
+5. BankService
+6. ATM State
+    a. Idle
+    b. CardInsertedState
+    c. Select OperationSate
+    d. MoneyInputState
+    e. DispensingState
+    f. OutOfService State
+
+
+Card
+
+- cardNumber: String
+- pin: String -- This is not required very bad need to validated by bankService
+- cvv: String -- This is not required very bad need to validated by bankService
+
+card(cardNumber: String, pin: String,  cvv: String)
+
+getPin(): String
+getCardNumber(): String
+getCvv(): String
+
+
+----------
+
+
+ATM Session
+
+- card: Card
+- operationSelected: String
+- amount: long
+- authenticated: boolean --> added
+
+
+
+BankService -> 5️⃣ BankService — ⚠️ Responsibility Leakage
+- customers: Map[customerId, Person] <static> -> little vague
+
+❌ Issue
+
+ATM should NOT decide business rules
+BankService should be transactional
+
+withdraw(accountId, amount): boolean
+getBalance(accountId): long
+validatePin(pin: String): boolean
+
+ATM asks → Bank decides.
+📌 MAANG principle: Tell, don’t ask
+
+
+
+
+------------------------------------------------
+
+getCustomerById(id: String): Customer
+validatePin(customerId: String, pin: String): boolean
+validateBalance(customerId: String, amount: int): boolean
+updateBalance(customerId: String, amount: int): void
+
+CashDispenser 6️⃣ CashDispenser — ⚠️ Incomplete
+notes: Map[NOTE, Integer]
+-------------------------
+Missing -> apart from that map should be used
+Dispensing logic
+Validation against amount
+Failure handling
+
+
+------------------------
+
+getNotes(): Map[NOTE, Integer]
+addNote(note: Note, count: int): void
+
+Expected APIs
+boolean canDispense(amount)
+Map<Note, Integer> dispense(amount)
+
+
+
+
+ATMState 7️⃣ ATMState Interface — ❌ TOO FAT (Important)
+
+insertCard(Card: card)
+insertPin(pin: String)
+authenticate(): boolean
+selectOperation(operation:Operation): void
+dispense(): void
+clear(): void
+cancel(): void
+
+❌ MAJOR DESIGN SMELL
+This violates Interface Segregation.
+”
+
+📌 Interviewer WILL ask:
+“Why does IdleState have dispense()?”
+
+✅ Correct State Design (MAANG-Level)
+
+Keep only externally triggered events:
+
+ATMState {
+   insertCard()
+   enterPin()
+   selectOperation()
+   enterAmount()
+   cancel()
+}
+
+Internal flows:
+authenticate()
+dispense()
+→ should be private helpers, not state API.
+
+
+8️⃣ State Breakdown — ⚠️ One Logical Gap
+
+Your states:
+
+Idle ✅
+CardInsertedState ✅
+AuthenticateState ⚠️ (questionable)
+SelectOperationState ✅
+MoneyInputState
+DispenseState ✅
+OutOfServiceState ✅
+🔴 Issue: AuthenticateState
+
+Authentication is:
+Short-lived
+Deterministic
+No user interaction
+
+📌 MAANG preference:
+
+Authentication is logic inside CardInsertedState
+NOT a separate state
+
+Unless:
+You support retries / lockout / async auth
+Then it’s justified.
+
+
+IdleState
+insertCard(Card: card)
+
+CardInsertedState
+insertPin(pin: String, AtmSession)
+cancel()
+
+AuthenticateState
+authenticate(atmSession: ATMSession): boolean
+cancel()
+
+SelectOperation
+selectOperation(operation: Operation)
+cancel()
+
+
+DispenseState
+dispense()
+
+OutOfService
+No Operation can be performed
+
+🔑 Final Advice (Critical)
+If you fix only these 3 things, your design becomes excellent:
+
+Remove PIN/CVV from Card
+Slim down ATMState interface
+Push business rules fully into BankService
+
+
+
+
+
+

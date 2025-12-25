@@ -1,5 +1,7 @@
 package LLD.SplitWise;
 
+import SplitWise.Balance;
+
 import java.util.HashMap;
 import java.util.Map;
 

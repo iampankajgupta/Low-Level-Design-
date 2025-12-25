@@ -27,7 +27,8 @@ public class UserService {
 
                 // loop over the participants
                 BalanceSheet balanceSheet = paidUser.getBalanceSheet();
-                Map<Integer, Balance> userBalance = balanceSheet.getUserBalance();
+               // Map<Integer, Balance> userBalance = balanceSheet.getUserBalance();'
+                Map<Integer, Balance> userBalance = null;
                 for(SplitWise.Split oweUser : participants) {
                     int oweUserId = oweUser.getUser().getId();
                     if(oweUser.getUser().getId() != paidUser.getId()) {
@@ -46,7 +47,7 @@ public class UserService {
                     balanceSheet.setTotalGet(balanceSheet.getTotalGet() + oweUser.getAmount());
 
                 }
-                balanceSheet.setUserBalance(userBalance);
+               // balanceSheet.setUserBalance(userBalance);
                 user.setBalanceSheet(balanceSheet);
             }
 

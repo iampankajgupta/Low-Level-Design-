@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         List<Item> shelf1Item = new ArrayList<>();
         shelf1Item.add(new Item("E313001", 10));
         shelf1Item.add(new Item("E313002", 5));
@@ -28,6 +29,8 @@ public class Main {
         vendingMachine.getIdleState().insertCoin(5);
         vendingMachine.getHasMoneyState().selectProduct("E313001");
         vendingMachine.getDispensingState().dispenseProduct();
+        
+         */
 
         /*
         * Great question! You're thinking in the right direction by examining your design against **SOLID principles**, especially the **Interface Segregation Principle (ISP)**.

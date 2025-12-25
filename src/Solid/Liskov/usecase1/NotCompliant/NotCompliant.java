@@ -24,7 +24,7 @@ public class NotCompliant {
 }
 
 
-class Account {
+public class Account {
     void deposit() {
         System.out.println("Deposition");
     }

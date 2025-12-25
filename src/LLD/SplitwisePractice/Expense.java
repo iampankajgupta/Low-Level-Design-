@@ -1,5 +1,6 @@
 package LLD.SplitwisePractice;
 
+import LLD.SplitWise.Split;
 import SplitWise.SplitType;
 
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ public class Expense {
     private Long id;
     private String description;
     private String name;
-    private List<User> userList;
+    private List<Split> userList;
     private User paidUser;
     private SplitType splitType;
     private LocalDate localDate;
@@ -40,11 +41,11 @@ public class Expense {
         this.name = name;
     }
 
-    public List<User> getUserList() {
+    public List<Split> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<User> userList) {
+    public void setUserList(List<Split> userList) {
         this.userList = userList;
     }
 

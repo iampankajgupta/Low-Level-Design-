@@ -1,0 +1,23 @@
+VendingMachine
+
+
+PaymentType
+CASH
+CREDIT
+DEBIT
+
+
+PaymentStrategy
+Cash
+Credit
+Debit
+
+VendingState
+
+IdleState
+HasMoneyState
+DispenseState
+OutOfStock
+
+1.Basic Requirement
+2. What if Multiple payment options are also available like card, upi, cash
